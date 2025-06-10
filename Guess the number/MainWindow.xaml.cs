@@ -26,7 +26,7 @@ namespace Guess_the_number
         public MainWindow()
         {
             InitializeComponent();
-            num = rand.Next(0, 5);
+            num = rand.Next(0, 100);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -41,10 +41,11 @@ namespace Guess_the_number
         {
             count++;
             Count.Text = $"Кол-во попыток {count}";
+            Histori.Items.Add($"{Vvod.Text} - {Hint.Text}");
             if (int.Parse(Vvod.Text) == num)
             {
-                MessageBox.Show($"Поздравляем, вы угадали число за {count} попыток!");
                 Hint.Text = "Угадал";
+                MessageBox.Show($"Поздравляем, вы угадали число за {count} попыток!");
             }
             else
             {
@@ -63,7 +64,6 @@ namespace Guess_the_number
                     MessageBox.Show("Вы близко");
                 }
             }
-            Histori.Items.Add($"{Vvod.Text} - {Hint.Text}");
         }
     }
 }
