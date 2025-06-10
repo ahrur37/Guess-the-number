@@ -33,12 +33,14 @@ namespace Guess_the_number
         {
             num = rand.Next(0, 100);
             count = 0;
-            Count.Text = $"{count}";
+            Count.Text = $"Кол-во попыток {count}";
             Hint.Text = "";
         }
 
         private void Check_Click(object sender, RoutedEventArgs e)
         {
+            count++;
+            Count.Text = $"Кол-во попыток {count}";
             if (int.Parse(Vvod.Text) == num)
             {
                 MessageBox.Show($"Поздравляем, вы угадали число за {count} попыток!");
@@ -61,8 +63,6 @@ namespace Guess_the_number
                     MessageBox.Show("Вы близко");
                 }
             }
-            count++;
-            Count.Text = $"{count}";
             Histori.Items.Add($"{Vvod.Text} - {Hint.Text}");
         }
     }
